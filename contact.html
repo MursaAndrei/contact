@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link href="https://t3.ftcdn.net/jpg/04/39/07/14/360_F_439071491_n5R468JOrY69fBw2dO5QdAAPGbV8m3xP.jpg" rel="shortcut icon" sizes="500x500">
+
+    <!--Font Awsome-->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+    <!--Font Awsome End-->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+    <!--Main Css Link-->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    
+   
+
+
+    <!--Main Css link End-->
+</head>
+<style>
+body{
+    height: 100vh;
+  background-image: linear-gradient(rgb(51, 48, 48), rgb(27, 25, 25), rgb(53, 48, 48)),
+    url(img/contact-us-banner.jpg.crdownload);
+  background-size: cover;
+  background-blend-mode: multiply;
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+ /**Media query */
+ @media(max-width:700px){
+
+.grid-c{
+    grid-template-columns: 1fr;
+}
+.s-btn{
+    margin-left: 20px;
+}
+.content-c p{
+   display: none;
+}
+.content-c h1{
+font-size: 1.5rem;
+padding: 20px;
+margin-bottom: 50px;
+}
+
+}
+   
+    
+</style>
+
+<body>
+    
+    <header>
+        <div class="menu-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+            <div class="btn-line"></div>
+        </div>
+        <nav class="menu">
+            <div class="menu-branding">
+                <div class="portrait"></div>
+            </div>
+            <ul class="menu-nav">
+                <li class="nav-item ">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="service.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="work.html" class="nav-link">My Work</a>
+                </li>
+                <li class="nav-item current">
+                    <a href="contact.html" class="nav-link">How To Reach Me</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+
+        <div class="container-c">
+            <div class="grid-c">
+                <div class="content-c">
+                    <h1 class="cont-txt">Let us talk about your projects.</h1>
+                    <p class="cont-txt-p">You can use the contact form to request information or set up a meeting to talk about your future project!!!</p>
+                    <div class="social-c">
+                        <a href="#!">
+                            <i class="fab fa-twitter fa-2x"></i>
+                        </a>
+                        <a href="#!">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                        <a href="#!">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                        <a href="#!">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="form-c">
+                    <form action="https://formsubmit.co/andreimursa@andreimursa.ro" method="POST">
+                        <div class="flex-c">
+                            <input   type="text" name="name" id="" placeholder="Your name" required>
+                            <input  type="email" name="email" id="" placeholder="Your Email" required>
+                            <input  type="phone" name="phone" id="" placeholder="Your Phone" required>
+                        </div>
+                        <h2>Contact</h2>
+                        <textarea  name="message" id="" cols="30" rows="8" placeholder="Your Message"></textarea><br>
+                        <button class="s-btn" type="submit" value="Send">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <footer id="main-footer">
+&copy; Andrei Mursa Alexandru 2021 &copy;
+
+<div class="footer-icons">
+    <a href="https://twitter.com/AndreiMursa1" target="_blank">
+        <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.facebook.com/Andrei.Mursa" target="_blank">
+        <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/andrei-mursa-724a08219/" target="_blank">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="#!">
+        <i class="fab fa-github"></i>
+    </a>
+</div>
+    </footer>
+
+    <!--Java Script -->
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        AOS.init();
+      </script>
+
+<script>
+    const constraints = {
+        name: {
+            presence: { allowEmpty: false }
+        },
+        email: {
+            presence: { allowEmpty: false },
+            email: true
+        },
+        message: {
+            presence: { allowEmpty: false }
+        }
+    };
+ 
+    const form = document.getElementById('contact-form');
+ 
+    form.addEventListener('submit', function (event) {
+      const formValues = {
+          name: form.elements.name.value,
+          email: form.elements.email.value,
+          message: form.elements.message.value
+      };
+ 
+      const errors = validate(formValues, constraints);
+ 
+      if (errors) {
+        event.preventDefault();
+        const errorMessage = Object
+            .values(errors)
+            .map(function (fieldValues) { return fieldValues.join(', ')})
+            .join("\n");
+ 
+        alert(errorMessage);
+      }
+    }, false);
+ </script>
+</body>
+
+</html>
